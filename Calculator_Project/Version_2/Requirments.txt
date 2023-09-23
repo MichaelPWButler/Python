@@ -1,0 +1,3 @@
+- Allow the user to enter 2 numbers to perform a mathmatical calculation on
+- Allow the user to choice the operation which they want to perform on the 2 numbers
+- Allow the user to enter the word or symbol for the opeartion
