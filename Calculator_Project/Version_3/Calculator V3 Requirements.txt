@@ -1,0 +1,6 @@
+Calculator V3 Requirements:
+
+- allow the user to enter 2 numbers
+- allow the user to choose which operation they want
+- allow the user to enter either a symbol or word for their operation
+- Error handling for the input of numbers
