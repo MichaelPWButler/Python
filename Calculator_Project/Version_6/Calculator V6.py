@@ -1,4 +1,4 @@
-import Calculatorv5_Storage  as calc#importing the moudle that allows the user to storage and view results
+import CalculatorV6_Storage  as calc#importing the moudle that allows the user to storage and view results
 
 # Building a main menu to allow the user to access the calculator or leave the program
 def mainMenu():
@@ -37,7 +37,7 @@ def inputNumbers():
 
 # Getting the operation for the calculation from the user
 def getOperation():
-    operation = input("Please put the operation for your calculation\nEither as a sumbol or word\n E.g + OR add\n")
+    operation = input("Please put the operation for your calculation\nEither as a sumbol or word\nE.g + OR add\n")
     return operation
 
 # The function that pulls all the functions together all returns the result for the user

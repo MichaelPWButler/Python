@@ -1,5 +1,5 @@
 def check(calculation): # checking to see if the user want to add the result to the storage
-    decision = input("Would you like to storg the result of this caclulation?\nY- YES\nN- NO\n")
+    decision = input("Would you like to store the result of this caclulation?\nY- YES\nN- NO\n")
     if decision.upper() == "N":
         pass
     elif decision.upper() == "Y":
@@ -11,7 +11,8 @@ def check(calculation): # checking to see if the user want to add the result to 
 def storeResult(calc): #adding the result to the text file
     f = open("storage.txt", "a")
     f.write(calc+"\n")
-    print("TEST")
+    f.close()
+    
 
 def viewStorage(): # printing out all of the lines in the storage text file
     f = open("storage.txt", "r")
@@ -19,3 +20,4 @@ def viewStorage(): # printing out all of the lines in the storage text file
     for x in f:
         print(x)
     print("**************************")
+    f.close()

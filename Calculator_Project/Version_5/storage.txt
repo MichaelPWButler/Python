@@ -1,1 +1,2 @@
 Your 2 numbers added together is: 6
+Your 2 numbers multipled is: 14

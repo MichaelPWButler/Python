@@ -11,11 +11,12 @@ def check(calculation): # checking to see if the user want to add the result to 
 def storeResult(calc): #adding the result to the text file
     f = open("storage.txt", "a")
     f.write(calc+"\n")
-    print("TEST")
+    f.close()
 
 def viewStorage(): # printing out all of the lines in the storage text file
     f = open("storage.txt", "r")
     print("**************************")
     for x in f:
         print(x)
-    print("**************************")
+    print("**************************")#
+    f.close()
