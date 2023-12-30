@@ -42,27 +42,14 @@ def getOperation():
 
 # The function that pulls all the functions together all returns the result for the user
 def calculate():
-    number1, number2 = inputNumbers()
-    operation = getOperation()
-    if operation == "+" or operation == "add":
-        result = ("Your 2 numbers added together is: %d" %(number1+number2))
-    elif operation == "-" or operation == "minus":
-        result = ("Your 2 numbers subtracted is: %d" %(number1-number2))
-    elif operation == "/" or operation == "divide":
-        result = ("Your 2 numbers diveded is: " %(number1/number2))
-    elif operation == "*" or operation == "multiply":
-        result = ("Your 2 numbers multipled is: %d" %(number1*number2))
-    elif operation == "**" or operation == "power":
-        result = ("Your numbers to the power off is: %d" %(number1**number2))
-    elif operation == "//" or operation == "floor":
-        result = ("Your 2 numbers Floor divided is: %d" %(number1//number2))
-    elif operation == "%" or operation == "modulus":
-        result = ("Your 2 numbers modulus is: %d" %(number1%number2))
-    else:
-        result = ("INVALID Operation Choosen")
+    x = input("Please input the calculation you wish to perform")
+    try:
+        answer = eval(x)
+    except:
+        print("Invalid Input")
         mainMenu()
-    print(result)
-    calc.check(result)
+    print("The result of your calculation is", answer)
+    calc.check(answer, x)
     mainMenu()
 
 mainMenu()

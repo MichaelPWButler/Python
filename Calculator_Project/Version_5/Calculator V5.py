@@ -1,4 +1,4 @@
-import Calculatorv5_Storage  as calc#importing the moudle that allows the user to storage and view results
+import CalculatorV5_Storage  as calc#importing the moudle that allows the user to storage and view results
 
 # Building a main menu to allow the user to access the calculator or leave the program
 def mainMenu():
