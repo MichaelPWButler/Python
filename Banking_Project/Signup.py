@@ -5,11 +5,10 @@ def login():
     for lines in loginFile:
         userInfo = lines.split(",")
         if userInfo[0] == loginEmail and userInfo[1] == loginPassword:
-            message = "Login Successful"
-        else:
-            message = "Login Failed"
-    print(message)
+            state = True
     loginFile.close()
+    return(state, userInfo)
+    
 
 def signUp():
     signupEmail = input("Please enter the email for your account:")
@@ -30,5 +29,3 @@ def signUp():
         print("Invalid Password")
     else:
         print("Invalid Email")
-
-signUp()
