@@ -1,6 +1,21 @@
-import Signup
+import Signup_Login
+
+def mainMenuUser():
+    print("Welcome")
+    print("Please press the number corresponding to the action you wish to do")
+    user = input("1.Login\n2.Sign Up\n3.Exit\n")
+    if user == "1":
+        userLogin()
+    elif user == "2":
+        Signup_Login.signUp()
+    elif user == "3":
+        pass
+    else:
+        print("INVALID OPTION")
+        mainMenuUser()
+
 def userLogin():
-    state, user = Signup.login()
+    state, user = Signup_Login.login()
     if state == True:
         print("Login Successful")
         main(user)
@@ -53,5 +68,3 @@ def numberCheck(num):
     except:
         print("Invalid input")
         return False
-
-userLogin()
