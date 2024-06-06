@@ -2,12 +2,13 @@ def login():
     loginEmail = input("Please enter your email:")
     loginPassword = input("Please enter your password:")
     loginFile = open("storage.txt", "r")
+    state = False
     for lines in loginFile:
         userInfo = lines.split(",")
         if userInfo[0] == loginEmail and userInfo[1] == loginPassword:
             state = True
     loginFile.close()
-    return(state, userInfo)
+    return state, userInfo
     
 
 def signUp():

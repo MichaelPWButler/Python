@@ -29,6 +29,7 @@ def main(user):
     print("1. View Balance")
     print("2. Deposit Money")
     print("3. Withdraw Money")
+    print("4. Logout")
     choice = input()
     if choice == "1":
         viewBalance(user)
@@ -36,6 +37,8 @@ def main(user):
         depositMoney(user)
     elif choice == "3":
         withdrawMoney(user)
+    elif choice == "4":
+        logout(user)
     else:
         print("Inavlid Input")
         main()
@@ -47,12 +50,12 @@ def viewBalance(user):
 def depositMoney(user):
     add = input("Please input the amount of money you wish to add to the account")
     if numberCheck(add) == True:
-        user[2] = user[2] + int(add)
+        user[2] = int(user[2]) + int(add)
         main(user)
     else:
         depositMoney(user)
 
-def withdrawMoney(user):
+def withdrawMoney(user): # This needs to be fixed
     minus = input("Please input the amount of money you wish to withdraw to the account")
     if numberCheck(minus) == True:
         user[2] = user[2] - int(minus)
@@ -68,3 +71,7 @@ def numberCheck(num):
     except:
         print("Invalid input")
         return False
+
+def logout(user):
+    final = open("storage.txt", "w")
+    final.write(user[0] + "," + user[1] + ","+ str(user[2]))
