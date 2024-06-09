@@ -16,7 +16,7 @@ def mainMenuUser():
 
 def userLogin():
     state, user = Signup_Login.login()
-    if state == True:
+    if state:
         print("Login Successful")
         main(user)
     else:
@@ -41,24 +41,27 @@ def main(user):
         logout(user)
     else:
         print("Inavlid Input")
-        main()
+        main(user)
 
 def viewBalance(user):
-    print(user[2])
+    print(f"Current balance: {user[2]}")
     main(user)
 
 def depositMoney(user):
-    add = input("Please input the amount of money you wish to add to the account")
-    if numberCheck(add) == True:
-        user[2] = int(user[2]) + int(add)
+    add = input("Please input the amount of money you wish to add to the account: ")
+    if numberCheck(add):
+        user[2] = str(int(user[2]) + int(add))
         main(user)
     else:
         depositMoney(user)
 
-def withdrawMoney(user): # This needs to be fixed
-    minus = input("Please input the amount of money you wish to withdraw to the account")
-    if numberCheck(minus) == True:
-        user[2] = user[2] - int(minus)
+def withdrawMoney(user):
+    minus = input("Please input the amount of money you wish to withdraw from the account: ")
+    if numberCheck(minus):
+        if int(user[2]) >= int(minus):
+            user[2] = str(int(user[2]) - int(minus))
+        else:
+            print("Insufficient funds")
         main(user)
     else:
         withdrawMoney(user)
@@ -73,5 +76,14 @@ def numberCheck(num):
         return False
 
 def logout(user):
-    final = open("storage.txt", "w")
-    final.write(user[0] + "," + user[1] + ","+ str(user[2]))
+    with open("storage.txt", "r") as file:
+        lines = file.readlines()
+    
+    with open("storage.txt", "w") as file:
+        for line in lines:
+            userInfo = line.strip().split(",")
+            if userInfo[0] == user[0]:
+                file.write(f"{user[0]},{user[1]},{user[2]}\n")
+            else:
+                file.write(line)
+    print("Logged out and data updated.")
