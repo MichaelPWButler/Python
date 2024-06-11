@@ -29,7 +29,8 @@ def main(user):
     print("1. View Balance")
     print("2. Deposit Money")
     print("3. Withdraw Money")
-    print("4. Logout")
+    print("4. Edit Account Details")
+    print("5. Logout")
     choice = input()
     if choice == "1":
         viewBalance(user)
@@ -38,6 +39,8 @@ def main(user):
     elif choice == "3":
         withdrawMoney(user)
     elif choice == "4":
+        edit(user)
+    elif choice == "5":
         logout(user)
     else:
         print("Inavlid Input")
@@ -74,6 +77,32 @@ def numberCheck(num):
     except:
         print("Invalid input")
         return False
+
+def edit(user):
+    print("1. Edit Email")
+    print("2. Edit Password")
+    choice = input()
+    if choice == "1":
+        email1 = input("Please enter new email: ")
+        email2 = input("Please enter email again: ")
+        if email1 == email2 and "@" in email1:
+            user[0] = email1
+        else:
+            print("Invalid Emails")
+            main(user)
+    elif choice == "2":
+        pas1 = input("Please type in the password: ")
+        pas2 = input("Please type in the password again: ")
+        if pas1 == pas2 and len(pas1) >= 8:
+            user[1] = pas1
+        else:
+            print("These passwords do not match")
+            main(user)
+    else:
+        print("Invalid choice")
+        main(user)
+    print(user)
+    main(user)
 
 def logout(user):
     with open("storage.txt", "r") as file:
