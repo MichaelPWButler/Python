@@ -1,37 +1,37 @@
 Banking Application Requirments:
 
 General Requirments:
-- The application must have a user section.
-- The application must have an admin section.
-- The application should be able to handle invalid inputs
-- The application should use TXT files to store data
-- There should be error handling when user inpus data into the application
+- The application must have a user section. DONE
+- The application must have an admin section. DONE
+- The application should be able to handle invalid inputs DONE
+- The application should use TXT files to store data DONE
+- There should be error handling when user inpus data into the application DONE
 
 User Requirments:
-- A user should have the option to login to their account.
-- To login to an account the user should have to enter an email and password
-- A user should only be logged in if the email and password match the user stored in the TXT file
-- A user should have the option to create an account.
-- A user must enter a valid email to sign up
-- A user must enter a password greater than 8 characters to sign up
-- A user must enter their choosen password twice when signing up
-- The two passwords entered by the user in signing up must match
-- Once the sign up requirments are meet their detials should be added to the TXT file
-- When creating a new account the application should intalise the account with a balance of zero
+- A user should have the option to login to their account. DONE
+- To login to an account the user should have to enter an email and password DONE
+- A user should only be logged in if the email and password match the user stored in the TXT file DONE
+- A user should have the option to create an account. DONE
+- A user must enter a valid email to sign up DONE
+- A user must enter a password greater than 8 characters to sign up DONE
+- A user must enter their choosen password twice when signing up DONE
+- The two passwords entered by the user in signing up must match DONE
+- Once the sign up requirments are meet their detials should be added to the TXT file DONE
+- When creating a new account the application should intalise the account with a balance of zero DONE
 
-- The text file must store the information on each user, their email, password and bank balance
+- The text file must store the information on each user, their email, password and bank balance DONE
 
-- User should be able to edit their email once logged into their account, with a valid email
-- User should be able to edit their passwrod once logged into their account.
-- When editing their password they must enter them twice and they must match
+- User should be able to edit their email once logged into their account, with a valid email DONE
+- User should be able to edit their passwrod once logged into their account.  DONE
+- When editing their password they must enter them twice and they must match DONE
 
-- User should be able to add to thier bank account balance
-- User should be able to withdraw from their account
-- User should be able send money from their account to another user using their email
-- A user must not be able to withdraw or transfer more money than they have in their account
+- User should be able to add to thier bank account balance DONE
+- User should be able to withdraw from their account DONE
+- User should be able send money from their account to another user using their email DONE
+- A user must not be able to withdraw or transfer more money than they have in their account DONE
 
-- User must be able to logout of their account
-- When making changes to their account it should be updated within the TXT files.
+- User must be able to logout of their account DONE
+- When making changes to their account it should be updated within the TXT files. DONE
 
 Admin requirments:
 - Admin should be able to login to their account.

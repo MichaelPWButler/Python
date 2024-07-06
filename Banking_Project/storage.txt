@@ -1,2 +1,2 @@
-michaelgmail@gmail.com,password,450
-anna@gmail.com,123,145
+michaelgmail@gmail.com,password,200
+anna@gmail.com,123,45

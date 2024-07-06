@@ -6,6 +6,7 @@ def mainMenu():
     userMenu = input("1.User Account\n2.Admin Account\n3.Exit\n")
     if userMenu == "1":
         user.mainMenuUser()
+        print("Logged Out And Data Updated")
         mainMenu()
     elif userMenu == "2":
         print("Admin")

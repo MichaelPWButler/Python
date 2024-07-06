@@ -1,4 +1,5 @@
 import Signup_Login
+import csv
 
 def mainMenuUser():
     print("Welcome")
@@ -29,8 +30,9 @@ def main(user):
     print("1. View Balance")
     print("2. Deposit Money")
     print("3. Withdraw Money")
-    print("4. Edit Account Details")
-    print("5. Logout")
+    print("4. Send Money")
+    print("5. Edit Account Details")
+    print("6. Logout")
     choice = input()
     if choice == "1":
         viewBalance(user)
@@ -39,8 +41,10 @@ def main(user):
     elif choice == "3":
         withdrawMoney(user)
     elif choice == "4":
-        edit(user)
+        sendMoney(user)
     elif choice == "5":
+        edit(user)
+    elif choice == "6":
         logout(user)
     else:
         print("Inavlid Input")
@@ -104,6 +108,25 @@ def edit(user):
     print(user)
     main(user)
 
+def sendMoney(user):
+    choice = input("Please input the email of the account you wish to send money to")
+    with open("storage.txt", "r") as loginFile:
+        reader = csv.reader(loginFile)
+        for userSend in reader:
+            if userSend[0] == choice:
+                money = input("How much money would you like to send this account")
+                if numberCheck(money):
+                    if int(user[2]) >= int(money):
+                        user[2] = str(int(user[2]) - int(money))
+                        userSend[2] = str(int(userSend[2]) + int(money))
+                        logout(userSend)
+                    else:
+                        print("Insufficient funds")
+                    main(user)
+                else:
+                    sendMoney(user)
+    main(user)
+
 def logout(user):
     with open("storage.txt", "r") as file:
         lines = file.readlines()
@@ -115,4 +138,4 @@ def logout(user):
                 file.write(f"{user[0]},{user[1]},{user[2]}\n")
             else:
                 file.write(line)
-    print("Logged out and data updated.")
+    
