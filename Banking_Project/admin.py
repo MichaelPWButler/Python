@@ -67,7 +67,25 @@ def editEmail(admin):
     adminMainMenu(admin)
 
 def editPassword():
-    pass
+    choose = input("Please enter the email you wish to update: ")
+    with open("storage.txt", "r") as loginFile:
+        reader = csv.reader(loginFile)
+        for userInfo in reader:
+            if userInfo[0] == choose:
+                password1 = input("Please enter the new email: ")
+                password2 = input("Please input the email again: ")
+                if len(password1) > 8 and (password1 == password2):
+                    with open("storage.txt", "r") as file:
+                        lines = file.readlines()
+    
+                    with open("storage.txt", "w") as file:
+                        for line in lines:
+                            userInfo = line.strip().split(",")
+                            if userInfo[0] == choose:
+                                file.write(f"{userInfo[0]},{password1},{userInfo[2]}\n")
+                            else:
+                                file.write(line)
+    adminMainMenu(admin)
 
 def editBalance():
     pass
