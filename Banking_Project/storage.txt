@@ -1,2 +1,3 @@
 michaelgmail@gmail.com,password,200
 anna@gmail.com,123,45
+admin@gmail.com,password
