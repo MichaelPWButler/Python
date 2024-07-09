@@ -21,9 +21,9 @@ def adminMainMenu(admin):
     print("6. Logout")
     choose = input()
     if choose == "1":
-        viewAll()
+        viewAll(admin)
     elif choose == "2":
-        editEmail()
+        editEmail(admin)
     elif choose == "3":
         editPassword()
     elif choose == "4":
@@ -36,11 +36,35 @@ def adminMainMenu(admin):
         print("Invalid Option")
         adminMainMenu(admin)
 
-def viewAll():
-    pass
+def viewAll(admin):
+    with open("storage.txt", "r") as userFile:
+        reader = csv.reader(userFile)
+        for index, userInfo in enumerate(reader, start=1):
+            formatted_info = ', '.join(item.strip() for item in userInfo)
+            print(f"{index}. {formatted_info}")
+    adminMainMenu(admin)
 
-def editEmail():
-    pass
+def editEmail(admin):
+    choose = input("Please enter the email you wish to update: ")
+    with open("storage.txt", "r") as loginFile:
+        reader = csv.reader(loginFile)
+        for userInfo in reader:
+            if userInfo[0] == choose:
+                email1 = input("Please enter the new email: ")
+                email2 = input("Please input the email again: ")
+                emailCheck = "@" in email1
+                if emailCheck and (email1 == email2):
+                    with open("storage.txt", "r") as file:
+                        lines = file.readlines()
+    
+                    with open("storage.txt", "w") as file:
+                        for line in lines:
+                            userInfo = line.strip().split(",")
+                            if userInfo[0] == choose:
+                                file.write(f"{email1},{userInfo[1]},{userInfo[2]}\n")
+                            else:
+                                file.write(line)
+    adminMainMenu(admin)
 
 def editPassword():
     pass
