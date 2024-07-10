@@ -66,7 +66,7 @@ def editEmail(admin):
                                 file.write(line)
     adminMainMenu(admin)
 
-def editPassword():
+def editPassword(admin):
     choose = input("Please enter the email you wish to update: ")
     with open("storage.txt", "r") as loginFile:
         reader = csv.reader(loginFile)
@@ -87,12 +87,52 @@ def editPassword():
                                 file.write(line)
     adminMainMenu(admin)
 
-def editBalance():
-    pass
+def editBalance(admin):
+    choose = input("Please enter the email you wish to update: ")
+    with open("storage.txt", "r") as loginFile:
+        reader = csv.reader(loginFile)
+        for userInfo in reader:
+            if userInfo[0] == choose:
+                newBalance = input("Please enter the new balance: ")
+                if len(password1) > 8 and (password1 == password2):
+                    with open("storage.txt", "r") as file:
+                        lines = file.readlines()
+    
+                    with open("storage.txt", "w") as file:
+                        for line in lines:
+                            userInfo = line.strip().split(",")
+                            if userInfo[0] == choose:
+                                file.write(f"{userInfo[0]},{userInfo[1]},{newBalance}\n")
+                            else:
+                                file.write(line)
+    adminMainMenu(admin)
 
-def editAdminDetails():
-    pass
+def editAdminDetails(admin):
+    adminEmail = input("Please enter the email for your account: ")
+    adminPassword1 = input("Please input your password: ")
+    adminPassword2 = input("Please input your password again: ")
+    
+    emailCheck = "@" in adminEmail
+
+    if emailCheck and (adminPassword1 == adminPassword2) and len(adminPassword2) >= 8:
+        admin[0] = adminEmail
+        admin[1] = adminPassword1
+    elif emailCheck and (adminPassword1 != adminPassword2 or len(adminPassword2) < 8):
+        print("Invalid Password")
+    else:
+        print("Invalid Email")
+        
+    adminMainMenu(admin)
 
 def logout():
-    pass
+    with open("storage.txt", "r") as file:
+            lines = file.readlines()
+        
+    with open("storage.txt", "w") as file:
+        for line in lines:
+            userInfo = line.strip().split(",")
+            if userInfo[0] == admin[0]:
+                file.write(f"{adminEmail},{adminPassword1},\n")
+            else:
+                file.write(line)
 

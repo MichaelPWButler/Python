@@ -34,14 +34,14 @@ User Requirments:
 - When making changes to their account it should be updated within the TXT files. DONE
 
 Admin requirments:
-- Admin should be able to login to their account.
+- Admin should be able to login to their account. DONE
 
-- Admin should be able to edit their email once logged into their account, with a valid email
-- Admin should be able to edit their passwrod once logged into their account.
-- When editing their password they must enter them twice and they must match
+- Admin should be able to edit their email once logged into their account, with a valid email DONE
+- Admin should be able to edit their passwrod once logged into their account. DONE
+- When editing their password they must enter them twice and they must match DONE
 
-- The admin mustbe able to view all accounts in the banking application
-- The admin must be able to edit any email for any usr that they choose within the banking application
-- The admin must be able to edit any password for any user that they choose within the banking application
-- The admin must be able to edit any balance for any user that they choose within the banking application
-- Once a chnage has been made by the admin it should be upated in the TXT file.
+- The admin must be able to view all accounts in the banking application DONE
+- The admin must be able to edit any email for any user that they choose within the banking application DONE
+- The admin must be able to edit any password for any user that they choose within the banking application DONE
+- The admin must be able to edit any balance for any user that they choose within the banking application DONE
+- Once a change has been made by the admin it should be upated in the TXT file. DONE
